@@ -66,7 +66,11 @@ struct Loader {
 }
 
 private func env(_ name: String) -> String? {
-    return ProcessInfo.processInfo.environment[name]
+    #if os(Linux)
+        return ProcessInfo.processInfo().environment[name]
+    #else
+        return ProcessInfo.processInfo.environment[name]
+    #endif
 }
 
 /// Returns "LINUX_SOURCEKIT_LIB_PATH" environment variable

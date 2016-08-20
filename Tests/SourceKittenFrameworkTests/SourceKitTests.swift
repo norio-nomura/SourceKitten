@@ -28,7 +28,7 @@ private func run(_ executable: String, arguments: [String]) -> String? {
 
 private func sourcekitStringsStartingWith(_ pattern: String) -> Set<String> {
     #if os(Linux)
-    let sourceKitPath = "\(ProcessInfo.processInfo.environment["LINUX_SOURCEKIT_LIB_PATH"]!)/libsourcekitdInProc.so"
+    let sourceKitPath = "\(ProcessInfo.processInfo().environment["LINUX_SOURCEKIT_LIB_PATH"]!)/libsourcekitdInProc.so"
     #else
     let sourceKitPath = run("/usr/bin/xcrun", arguments: ["-f", "swiftc"])!.bridge()
         .deletingLastPathComponent.bridge()

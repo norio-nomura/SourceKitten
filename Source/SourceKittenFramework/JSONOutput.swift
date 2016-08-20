@@ -27,9 +27,15 @@ public func toJSON(_ object: NSDictionary) -> String {
 }
 
 private func toJSON(any: Any) -> String {
-    return (try? JSONSerialization.data(withJSONObject: any, options: .prettyPrinted)).flatMap { data in
-        return String(data: data, encoding: .utf8)
-    } ?? ""
+    #if os(Linux)
+        return (try? JSONSerialization.data(withJSONObject: any as! AnyObject, options: .prettyPrinted)).flatMap { data in
+            return String(data: data, encoding: .utf8)
+            } ?? ""
+    #else
+        return (try? JSONSerialization.data(withJSONObject: any, options: .prettyPrinted)).flatMap { data in
+            return String(data: data, encoding: .utf8)
+            } ?? ""
+    #endif
 }
 
 /**
