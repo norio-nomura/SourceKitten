@@ -11,7 +11,7 @@ matrix:
       osx_image: xcode8
       before_install:
         - make bootstrap
-    - script: docker run -v `pwd`:/SourceKitten jpsim/sourcekit bash -c "cd /SourceKitten && swift build && swift test"
+    - script: docker run -v `pwd`:/SourceKitten norionomura/sourcekit:30p6 bash -c "cd /SourceKitten && swift build && swift test"
       env: JOB=Linux-Docker
       sudo: required
       services: docker
