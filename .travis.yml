@@ -5,13 +5,12 @@ matrix:
       env: JOB=Xcode
       os: osx
       osx_image: xcode8
-    - script: make spm_test
+    - script: swift build && swift test
       env: JOB=SPM
       os: osx
       osx_image: xcode8
       before_install:
         - make bootstrap
-        - make swift_snapshot_install
     - script: docker run -v `pwd`:/SourceKitten jpsim/sourcekit bash -c "cd /SourceKitten && swift build && swift test"
       env: JOB=Linux-Docker
       sudo: required
