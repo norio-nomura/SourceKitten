@@ -16,16 +16,16 @@ import SourceKittenFramework
 
 private func run() {
     let registry = CommandRegistry<SourceKittenError>()
-    registry.register(command: CompleteCommand())
-    registry.register(command: DocCommand())
-    registry.register(command: FormatCommand())
-    registry.register(command: IndexCommand())
-    registry.register(command: SyntaxCommand())
-    registry.register(command: StructureCommand())
-    registry.register(command: VersionCommand())
+    registry.register(CompleteCommand())
+    registry.register(DocCommand())
+    registry.register(FormatCommand())
+    registry.register(IndexCommand())
+    registry.register(SyntaxCommand())
+    registry.register(StructureCommand())
+    registry.register(VersionCommand())
 
     let helpCommand = HelpCommand(registry: registry)
-    registry.register(command: helpCommand)
+    registry.register(helpCommand)
 
     registry.main(defaultVerb: "help") { error in
         fputs("\(error)\n", stderr)

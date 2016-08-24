@@ -3,7 +3,7 @@
 	url = https://github.com/jspahrsummers/xcconfigs.git
 [submodule "Carthage/Checkouts/Commandant"]
 	path = Carthage/Checkouts/Commandant
-	url = https://github.com/jpsim/Commandant.git
+	url = https://github.com/norio-nomura/Commandant.git
 [submodule "Carthage/Checkouts/SWXMLHash"]
 	path = Carthage/Checkouts/SWXMLHash
 	url = https://github.com/jpsim/SWXMLHash.git
